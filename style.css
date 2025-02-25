@@ -1,0 +1,310 @@
+body{
+    margin: 0px;
+    /* overflow: hidden; */
+}
+
+.headerClass {
+    background-image: url('../imageFiles/HeaderBackGround.jpg'); /* Adjust the path to your image */
+    background-size: cover;
+    background-position: center;
+    padding: 0px 0; /* Adjusted padding */
+    top: 0;
+    width: 100%;
+    z-index: 1002; /* Ensure header is above nav */
+    position: fixed;
+    
+}
+
+.headerClass h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2.5em;
+    color: #ffffff;
+}
+
+.glass-effect {
+    background: rgba(255, 140, 1, 0.41);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(255, 140, 1, 0.41);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.navClassHeader {
+    top: 128px; /* Adjust based on header height */
+    width: 100%;
+    background-color: #fff;
+    z-index: 1001; /* Ensure nav is below header */
+    padding: 10px;
+    position: fixed;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #007BFF;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+}
+
+nav ul li a:hover {
+    color: #0056b3;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:active::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 110%;
+    height: 110%;
+    background: rgba(255, 191, 0, 0.182);
+    border-radius: 10%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:active::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+nav ul li a.selected {
+    color: #b30000;
+    font-weight: bold;
+}
+
+nav ul li a.selected::after {
+    width: 100%;
+}
+
+.expandable-list {
+    list-style-type: none;
+    padding: 0;
+    align-items: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.expandable-header {
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #f6ae0771;
+    border: 1px solid #f6ae0771;
+    border-radius: 15px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: left;
+    width: 100%;
+}
+
+.expandable-header:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.02);
+}
+
+.expandable-header:active {
+    background-color: #d0d0d0;
+    transform: scale(0.98);
+}
+
+.expandable-header.expanded-header {
+    background-color: #e0e0e0;
+    z-index: 1001; /* Ensure headers are above other content */
+}
+
+.expandable-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    list-style-type: none;
+    padding-left: 20px;
+    width: 100%;
+}
+
+.expandable-content.expanded {
+    max-height: 500px; /* Adjust this value based on your content */
+    overflow: visible; /* Ensure content is visible */
+}
+
+.expandable-content li {
+    position: relative;
+    padding-left: 20px; /* Space for the bullet */
+    margin-bottom: 10px; /* Space between list items */
+}
+
+.expandable-content li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: #007BFF; /* Bullet color */
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.7), 0 0 20px rgba(0, 123, 255, 0.5), 0 0 30px rgba(0, 123, 255, 0.3);
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5), 0 0 10px rgba(0, 123, 255, 0.3), 0 0 15px rgba(0, 123, 255, 0.1);
+    }
+    to {
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.7), 0 0 20px rgba(0, 123, 255, 0.5), 0 0 30px rgba(0, 123, 255, 0.3);
+    }
+}
+
+.navContent {
+    font-size: 35px;
+    text-align: left;
+}
+
+
+
+.content {
+    margin-top: 120px; /* Height of header + nav */
+    padding: 20px;
+    width: 100%;
+    /* max-width: 800px; */
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    min-height: calc(100vh - 70px); /* Adjust based on header/nav/footer */
+    overflow-y: auto; /* Allow vertical scrolling */
+    position: relative; /* Ensure content is scrollable */
+    z-index: 1000; /* Ensure content is below header and nav */
+    padding-bottom: 100px; /* Add padding to avoid overflow through footer */
+}
+
+
+
+html, body {
+     /* overflow-x: hidden;  */
+    height: 100%;
+}
+
+footer {
+    
+    /* background: rgb(255, 141, 1); */
+    padding: 0px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    z-index: 1001; /* Ensure footer is above content */
+}
+
+.footer-text {
+    background-image: url('../imageFiles/HeaderBackGround.jpg'); /* Adjust the path to your image */
+    background-size: cover;
+    background-position: center;
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    color: #ffffff;
+    text-align: right;
+    padding-right: 20px;
+}
+
+#contactContent iframe {
+    width: 100%; /* Make iframe responsive */
+    height: auto; /* Adjust height automatically */
+    min-height: 600px; /* Set a minimum height */
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 598px) {
+
+    .navClassHeader {
+        top: 174px; /* Adjust based on header height */
+        width: 100%;
+        background-color: #fff;
+        z-index: 1001; /* Ensure nav is below header */
+        padding: 10px;
+        position: fixed;
+    }
+    .content {
+        margin-top: 174px;  /* Adjust based on header and nav height */
+        height: calc(100vh - 120px - 40px); /* Adjust based on header, nav, and footer height */
+        overflow-y: auto; /* Allow vertical scrolling */
+        overflow-x: auto; /* Allow horizontal scrolling */
+        z-index: 1000; /* Ensure content is below header and nav */
+        padding-bottom: 100px; /* Add padding to avoid overflow through footer */
+         
+    }
+    #contactContent iframe {
+        height: 100vh; /* Adjust height for mobile view */
+    }
+
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 441px) {
+
+    .navClassHeader {
+        top: 224px; /* Adjust based on header height */
+        width: 100%;
+        background-color: #fff;
+        z-index: 1001; /* Ensure nav is below header */
+        padding: 10px;
+        position: fixed;
+    }
+    .content {
+        margin-top: 219px; /* Adjust based on header and nav height */
+        height: calc(100vh - 120px - 40px); /* Adjust based on header, nav, and footer height */
+        overflow-y: auto; /* Allow vertical scrolling */
+        overflow-x: auto; /* Allow horizontal scrolling */
+        z-index: 1000; /* Ensure content is below header and nav */
+        padding-bottom: 100px; /* Add padding to avoid overflow through footer */
+        margin-bottom: 50px; /* Add margin to avoid overlapping footer */
+       
+
+}
+
+@media (max-width: 441px) {
+    .content {
+        margin-top: 219px; /* Adjust based on header and nav height */
+        height: calc(100vh - 120px - 40px); /* Adjust based on header, nav, and footer height */
+        overflow-y: auto; /* Allow vertical scrolling */
+        overflow-x: auto; /* Allow horizontal scrolling */
+        z-index: 1000; /* Ensure content is below header and nav */
+        padding-bottom: 70px; /* Add padding to avoid overflow through footer */
+        margin-bottom: 50px; /* Add margin to avoid overlapping footer */
+    }  
+
+}
+    #contactContent iframe {
+        height: 100vh; /* Adjust height for mobile view */
+    }
+}
+
+
