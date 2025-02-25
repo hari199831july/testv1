@@ -4,7 +4,7 @@ body{
 }
 
 .headerClass {
-    background-image: url('../imageFiles/HeaderBackGround.jpg'); /* Adjust the path to your image */
+    background-image: url('../HeaderBackGround.jpg'); /* Adjust the path to your image */
     background-size: cover;
     background-position: center;
     padding: 0px 0; /* Adjusted padding */
@@ -225,7 +225,7 @@ footer {
 }
 
 .footer-text {
-    background-image: url('../imageFiles/HeaderBackGround.jpg'); /* Adjust the path to your image */
+    background-image: url('../HeaderBackGround.jpg'); /* Adjust the path to your image */
     background-size: cover;
     background-position: center;
     font-family: 'Poppins', sans-serif;
